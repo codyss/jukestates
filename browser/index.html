@@ -6,6 +6,7 @@
     <link href="/bootstrap-dark.css" rel="stylesheet" />
     <link href="/style.css" rel="stylesheet" />
     <script src="/angular/angular.js" defer></script>
+    <script src="/angular-ui-router/release/angular-ui-router.min.js" defer></script>
     <script src="/js/module.js" defer></script>
     <script src="/js/album/album.controllers.js" defer></script>
     <script src="/js/album/album.factory.js" defer></script>
@@ -24,20 +25,22 @@
           <img src="juke.svg" class="logo">
           <section>
             <h4 class="playlist-item active">
-              <a href="#" ng-click="viewAlbums()">ALBUMS</a>
+              <a href="/#/albums">ALBUMS</a>
             </h4>
           </section>
           <section>
-            <h5 class="playlist-item">
-              <a ng-click="viewAllArtists()" href="#">ARTISTS</a>
-            </h5>
+            <h4 class="playlist-item">
+              <a href="/#/artists">ARTISTS</a>
+            </h4>
           </section>
         </sidebar>
       </div>
 
-      <div class="col-xs-10">
 
-        <div ng-controller="AlbumsCtrl" ng-show="showMe">
+
+      <div class="col-xs-10">
+<ui-view></ui-view>
+<!--         <div ng-controller="AlbumsCtrl" ng-show="showMe">
           <h3>Albums</h3>
           <div class="row">
             <div class="col-xs-4" ng-repeat="album in albums">
@@ -130,7 +133,7 @@
                 </tr>
               </tbody>
             </table>
-        </div>
+        </div> -->
 
       </div>
 
