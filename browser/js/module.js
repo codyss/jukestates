@@ -38,3 +38,27 @@ juke.config(function($stateProvider) {
     controller: 'ArtistCtrl'
   })
 })
+
+
+juke.config(function($stateProvider) {
+  $stateProvider.state('artist.albums', {
+    //specifies the state to show all artists
+    url: '/albums',
+    templateUrl: '/allAlbums.html',
+    controller: function($scope, $stateParams, $timeout, ArtistFactory) {
+      $timeout(ArtistFactory.fetchById($stateParams.artistId)
+      ///returns object with all songs (.songs) and albums (.albums)
+      .then(artist => {
+        $scope.albums = artist.albums;
+      }), 2000);
+    }
+  })
+})
+
+juke.config(function($stateProvider) {
+  $stateProvider.state('artist.songs', {
+    //specifies the state to show all artists
+    url: '/songs',
+    templateUrl: '/songs.html'
+  })
+})
