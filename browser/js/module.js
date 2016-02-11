@@ -3,7 +3,14 @@
 var juke = angular.module('juke', ['ui.router']);
 
 
+juke.config(function($urlRouterProvider, $locationProvider) {
+  $urlRouterProvider.when('', '/albums'),
+  $locationProvider.html5Mode({enabled:true, requireBase:false})
+})
 
+// .config(function($locationProvider){
+//    $locationProvider.html5Mode({enabled:true, requireBase:false});
+// })
 
 juke.config(function($stateProvider) {
   $stateProvider.state('allAlbums', {
